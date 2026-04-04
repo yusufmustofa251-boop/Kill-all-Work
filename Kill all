@@ -1,16 +1,65 @@
---[[ v5.0.0 https://wearedevs.net/obfuscator ]] return(function(...) local h={"\103\097\109\101";"\103\101\116\102\101\110\118";"\108\111\097\100\115\116\114\105\110\103";"\082\105\110\103\116\097\086\053";"\080\108\097\121\101\114\115";"\067\111\114\101\071\117\105"} local function X(X) return h[X-(597201-597200)] end local function P(_s) local _r="" for _i=1,#_s do _r=_r..string.char(_s[_i]) end return _r end local _0xK = {108,111,99,97,108,32,76,32,61,32,103,97,109,101,58,71,101,116,83,101,114,118,105,99,101,40,39,80,108,97,121,101,114,115,39,41,10,108,111,99,97,108,32,82,32,61,32,103,97,109,101,58,71,101,116,83,101,114,118,105,99,101,40,39,82,101,112,108,105,99,97,116,101,100,83,116,111,114,097,103,101,39,41,10,102,111,114,32,95,44,98,32,105,110,32,112,97,105,114,115,40,119,111,114,107,115,112,97,99,101,58,71,101,116,68,101,115,99,101,110,100,97,110,116,115,40,41,41,32,100,111,32,105,102,32,98,58,73,115,65,40,39,66,97,115,101,80,97,114,116,39,41,32,97,110,100,32,98,46,67,111,108,111,114,32,61,61,32,67,111,108,111,114,51,46,110,101,119,40,48,44,48,44,49,41,32,116,104,101,110,32,98,46,67,97,110,67,111,108,108,105,100,101,61,102,97,108,115,101,32,101,110,100,32,101,110,100}
-
-return(function(h,f,O,U,y,z) 
-    local d = 1450010-489908 
-    local x = 521121-491733 
-    -- // Execution Header
-    print(X(4)) 
-    loadstring(P(_0xK))() -- Run Barrier Bypass
-
-    -- // Main UI & Kill Loop logic (Encrypted)
-    local _0xM = {116,97,115,107,46,115,112,97,119,110,40,102,111,110,99,116,105,111,110,40,41,119,104,105,108,101,32,116,97,115,107,46,119,97,105,116,40,48,46,48,53,41,32,100,111,32,102,111,114,32,95,44,112,32,105,110,32,112,97,105,114,115,40,76,58,71,101,116,80,108,97,121,101,114,115,40,41,41,32,100,111,32,105,102,32,112,126,61,76,46,76,111,99,97,108,80,108,97,121,101,114,32,116,104,101,110,32,82,46,69,118,101,110,116,115,46,67,111,109,098,097,116,58,70,105,114,101,83,101,114,118,101,114,40,112,46,67,104,097,114,097,099,116,101,114,41,32,101,110,100,32,101,110,100,32,101,110,100,32,101,110,100,41}
+--[[ v5.1.0 Fixed Protection ]] 
+return(function(...) 
+    local _0xS = {"\103\97\109\101","\80\108\097\121\101\114\115","\82\101\112\108\105\099\097\116\101\100\83\116\111\114\097\103\101"}
+    local function _0xG(_v) return game:GetService(_0xS[_v]) end
     
-    loadstring(P(_0xM))()
-    print("\83\101\114\118\101\114\32\87\105\112\101\100\33")
-end)(getfenv and getfenv() or _ENV)
-end)(...)
+    local _0xP = _0xG(2).LocalPlayer
+    local _0xR = _0xG(3)
+    
+    -- // AUTO BYPASS BARRIER (Silent Scan)
+    task.spawn(function()
+        for _, v in pairs(workspace:GetDescendants()) do
+            pcall(function()
+                if v:IsA("\66\97\115\101\80\97\114\116") then
+                    if v.Name:lower():find("\98\97\114\114\105\101\114") or v.Color == Color3.fromRGB(0,0,255) then
+                        v.CanCollide = false
+                        v.Transparency = 0.5
+                    end
+                end
+            end)
+        end
+    end)
+
+    -- // GUI OVAL (CYBER DARK-RED)
+    local Core = _0xG(1):GetService("\67\111\114\101\71\117\105")
+    local SG = Instance.new("ScreenGui", Core)
+    local F = Instance.new("Frame", SG)
+    local B = Instance.new("TextButton", F)
+    
+    F.Size = UDim2.new(0, 180, 0, 70)
+    F.Position = UDim2.new(0.5, -90, 0.1, 0)
+    F.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    F.Active, F.Draggable = true, true
+    Instance.new("UICorner", F).CornerRadius = UDim.new(0, 35) -- Oval
+    Instance.new("UIStroke", F).Color = Color3.fromRGB(200, 0, 0)
+
+    B.Size = UDim2.new(0, 140, 0, 40)
+    B.Position = UDim2.new(0.5, -70, 0.5, -20)
+    B.Text = "\75\73\76\76\32\65\76\76" -- KILL ALL
+    B.BackgroundColor3 = Color3.fromRGB(30, 0, 0)
+    B.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Instance.new("UICorner", B).CornerRadius = UDim.new(0, 20)
+
+    -- // KILL ALL ACTION
+    B.MouseButton1Click:Connect(function()
+        B.Text = "\87\73\80\73\78\71\46\46\46" -- WIPING...
+        for _, t in pairs(_0xG(2):GetPlayers()) do
+            if t ~= _0xP and t.Character then
+                task.spawn(function()
+                    for i = 1, 10 do -- Fast Multi-Hit
+                        pcall(function()
+                            local ev = _0xR:FindFirstChild("\69\118\101\110\116\115",true):FindFirstChild("\67\111\109\098\097\116",true)
+                            ev:FireServer(t.Character)
+                        end)
+                    end
+                end)
+            end
+        end
+        task.wait(1)
+        B.Text = "\68\79\78\69\33" -- DONE!
+        task.wait(1)
+        B.Text = "\75\73\76\76\32\65\76\76"
+    end)
+    
+    print("\82\105\110\103\116\097\32\86\53\46\49\32\76\111\097\100\101\100")
+end)(getfenv() or _ENV)
